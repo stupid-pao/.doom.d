@@ -64,6 +64,15 @@
     (conda-env-initialize-eshell)
     (conda-env-autoactivate-mode t))
 
+(use-package! lsp-pyls
+  :config
+  (setq lsp-pyls-plugins-jedi-environment "/Users/paozi/anaconda/envs/new2.7")   ;; set execute path (install python-language-server env)
+  (setq lsp-pyls-plugins-pylint-enabled nil)
+  (setq lsp-pyls-plugins-flake8-enabled t)
+  (setq lsp-pyls-plugins-flake8-max-line-length 120)
+  (setq lsp-pyls-plugins-flake8-ignore '("E402", "F841", "F401", "E302", "E305", "W293", "E501", "E128", "W292", "E303", "W29"))
+  )
+
 (define-coding-system-alias 'UTF-8 'utf-8)
 
 (use-package! go-mode
