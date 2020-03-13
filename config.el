@@ -68,17 +68,16 @@
 
 (use-package! go-mode
   :config
-  ;;(gofmt-before-save)
-  ;;(go-packages-go-list)
-
   ;;配置format & import on save
   ;;The goimports approach
   ;;(setq gofmt-command "goimports")
   ;;(add-hook 'before-save-hook 'gofmt-before-save)
   ;; or
-  ;; The lsp approach
+  ;; The lsp approach:   use lsp import; use `gofmt -s` format 
+  (setq gofmt-args (list "-s"))
   (add-hook 'before-save-hook
             (lambda ()
-              (lsp-format-buffer)
+              ;;(lsp-format-buffer)
+              (gofmt-before-save)
               (lsp-organize-imports)))
   )
