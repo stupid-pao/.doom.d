@@ -65,3 +65,20 @@
     (conda-env-autoactivate-mode t))
 
 (define-coding-system-alias 'UTF-8 'utf-8)
+
+(use-package! go-mode
+  :config
+  ;;(gofmt-before-save)
+  ;;(go-packages-go-list)
+
+  ;;配置format & import on save
+  ;;The goimports approach
+  ;;(setq gofmt-command "goimports")
+  ;;(add-hook 'before-save-hook 'gofmt-before-save)
+  ;; or
+  ;; The lsp approach
+  (add-hook 'before-save-hook
+            (lambda ()
+              (lsp-format-buffer)
+              (lsp-organize-imports)))
+  )
