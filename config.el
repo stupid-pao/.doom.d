@@ -64,6 +64,11 @@
     (conda-env-initialize-eshell)
     (conda-env-autoactivate-mode t))
 
+(use-package! flycheck
+  :config
+  (setq flycheck-python-pylint-executable "flake8")
+  )
+
 (use-package! lsp-pyls
   :config
   (setq lsp-pyls-plugins-jedi-environment "/Users/paozi/anaconda/envs/new2.7")   ;; set execute path (install python-language-server env)
