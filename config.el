@@ -101,3 +101,17 @@
               (gofmt-before-save)
               (lsp-organize-imports)))
   )
+
+;;(use-package! git-gutter
+  ;;:config
+  ;;(custom-set-variables
+    ;;;;'(git-gutter:modified-sign "  ") 
+    ;;;;'(git-gutter:added-sign "++")
+    ;;'(git-gutter:deleted-sign "⇲"))
+  ;;(set-face-background 'git-gutter:deleted "#ff5555")
+  ;;)
+
+(map!
+ :leader
+ :desc "popup-hunc" "g p" #'git-gutter:popup-hunk
+ )
