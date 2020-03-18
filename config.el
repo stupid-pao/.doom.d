@@ -82,6 +82,7 @@
   ;;  "F841" assigned but not use variable
   ;;  "F401" assigned but not use import
   (setq lsp-pyls-plugins-flake8-ignore '("E402" "E302" "E305" "W293" "E501" "E128" "W292" "E303" "W29"))
+  (setq! flycheck-check-syntax-automatically nil)
   )
 
 (define-coding-system-alias 'UTF-8 'utf-8)
@@ -111,7 +112,26 @@
   ;;(set-face-background 'git-gutter:deleted "#ff5555")
   ;;)
 
+;; -----------------
+;; keymap        
+;; -----------------
 (map!
  :leader
  :desc "popup-hunc" "g p" #'git-gutter:popup-hunk
+ :desc "comment-line" "c /" #'comment-line
+ ;;:desc "dumb-jump-go" "g d" #'dumb-jump-go
  )
+(map! :n "g ]" #'dumb-jump-go)
+;; -----------------
+;; end keymap
+;; -----------------
+
+
+;; For python
+(add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; For Javascript
+;; (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; More generally, this will do it for all major modes:
+;; (add-hook 'after-change-major-mode-hook
+          ;; (lambda ()
+            ;; (modify-syntax-entry ?_ "w")))
