@@ -138,6 +138,7 @@
  ;;:desc "dumb-jump-go" "g d" #'dumb-jump-go
  )
 (map! :n "g ]" #'dumb-jump-go)
+(map! :n "g [" #'dumb-jump-back)
 ;; -----------------
 ;; end keymap
 ;; -----------------
