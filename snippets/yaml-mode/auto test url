@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: auto test url
+# key: auto
+# condition: t
+# --
+- 
+  name: "auto"
+  type: url-test
+  proxies:
+    - "$0"
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 100

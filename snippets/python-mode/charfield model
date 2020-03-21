@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: charfield model
+# uuid: 
+# key: char
+# condition: t
+# --
+$1 = models.CharField(max_length=$2, blank=True, null=True, default='')$0

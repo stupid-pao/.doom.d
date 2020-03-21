@@ -60,6 +60,8 @@
 ;; python
 ;; ----------------------
 
+;; to auto enable conda-env when open a project, need add below in .dir-locals.el
+;;((python-mode . ((eval . (conda-env-activate "env-name")))))
 (use-package! conda
     :config
     (setq conda-anaconda-home "/Users/paozi/anaconda")
@@ -74,6 +76,8 @@
   )
 
 (use-package! lsp-python-ms
+  :demand t
+  :after lsp
   :init
   (setq lsp-python-ms-extra-paths (list "./taidii"))
   :config
@@ -97,7 +101,7 @@
 ;;   )
 
 ;; ----------------------
-;; python
+;; end python
 ;; ----------------------
 
 
@@ -152,3 +156,5 @@
 ;; (add-hook 'after-change-major-mode-hook
           ;; (lambda ()
             ;; (modify-syntax-entry ?_ "w")))
+
+(setq! org-bullets-bullet-list '("✿" "✸" "◉" "○"))
