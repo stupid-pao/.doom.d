@@ -6,7 +6,6 @@
 - 
   name: "auto"
   type: url-test
-  proxies:
-    - "$0"
+  proxies: - "xx"
   url: 'http://www.gstatic.com/generate_204'
   interval: 100
