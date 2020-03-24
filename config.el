@@ -158,3 +158,9 @@
             ;; (modify-syntax-entry ?_ "w")))
 
 (setq! org-bullets-bullet-list '("✿" "✸" "◉" "○"))
+
+
+(use-package! doom-modeline
+  :config
+  (setq! doom-modeline-major-mode-icon t)
+  )
