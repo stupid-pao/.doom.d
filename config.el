@@ -164,3 +164,8 @@
   :config
   (setq! doom-modeline-major-mode-icon t)
   )
+
+;; org-mode table  中英文对齐
+(with-eval-after-load 'org
+  (set-face-attribute 'org-link              nil  :font "Sarasa Term SC 14")
+  (set-face-attribute 'org-table             nil  :font "Sarasa Term SC 14" :fontset (create-fontset-from-fontset-spec (concat "-*-*-*-*-*--*-*-*-*-*-*-fontset-orgtable" ",han:Sarasa Term SC:size=14"))))
