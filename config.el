@@ -157,15 +157,23 @@
           ;; (lambda ()
             ;; (modify-syntax-entry ?_ "w")))
 
-(setq! org-bullets-bullet-list '("✿" "✸" "◉" "○"))
-
-
 (use-package! doom-modeline
   :config
   (setq! doom-modeline-major-mode-icon t)
   )
 
+(setq! org-bullets-bullet-list '("✿" "✸" "◉" "○"))
+
 ;; org-mode table  中英文对齐
 (with-eval-after-load 'org
   (set-face-attribute 'org-link              nil  :font "Sarasa Term SC 14")
-  (set-face-attribute 'org-table             nil  :font "Sarasa Term SC 14" :fontset (create-fontset-from-fontset-spec (concat "-*-*-*-*-*--*-*-*-*-*-*-fontset-orgtable" ",han:Sarasa Term SC:size=14"))))
+  (set-face-attribute 'org-table             nil  :font "Sarasa Term SC 14" :fontset (create-fontset-from-fontset-spec (concat "-*-*-*-*-*--*-*-*-*-*-*-fontset-orgtable" ",han:Sarasa Term SC:size=14")))
+  )
+
+(setq! doom-dracula-colorful-headers t)
+;(set-face-foreground 'org-level-1 (doom-color 'yellow))
+;(set-face-foreground 'org-level-2 (doom-color 'fg))
+;(set-face-foreground 'org-level-3 (doom-color 'fg))
+;(set-face-foreground 'org-level-4 (doom-color 'fg))
+;; (custom-set-faces
+ ;; `(org-level-1 ((t (:inherit outline-1 :height 1.2)))))
