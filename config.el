@@ -177,3 +177,9 @@
 ;(set-face-foreground 'org-level-4 (doom-color 'fg))
 ;; (custom-set-faces
  ;; `(org-level-1 ((t (:inherit outline-1 :height 1.2)))))
+
+(setq web-mode-engines-alist '(("django"    . "\\.html\\'")))
+
+(add-hook! 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-method 'character)
+(setq highlight-indent-guides-character ?\|)

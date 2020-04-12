@@ -51,3 +51,4 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 (package! lsp-python-ms)
+(package! highlight-indent-guides)
