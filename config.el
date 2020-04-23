@@ -77,11 +77,10 @@
 
 (use-package! lsp-python-ms
   :demand t
-  :after lsp
   :init
-  (setq lsp-python-ms-extra-paths (list "./taidii"))
+  (setq! lsp-python-ms-extra-paths (list "./taidii"))
   :config
-  (setq lsp-python-ms-python-executable-cmd "python")
+  (setq! lsp-python-ms-python-executable-cmd "python")
   )
 
 ;; (use-package! lsp-pyls
@@ -180,10 +179,13 @@
 
 (setq web-mode-engines-alist '(("django"    . "\\.html\\'")))
 
-(add-hook! 'prog-mode-hook 'highlight-indent-guides-mode)
-(setq highlight-indent-guides-method 'character)
-;; (setq highlight-indent-guides-method 'column)
-;; ▏￨▏
-(setq highlight-indent-guides-character ?\▏)
-(setq highlight-indent-guides-responsive 'stack)
-(setq highlight-indent-guides-delay 0)
+;; 开了这个巨卡无比
+;; (add-hook! 'prog-mode-hook 'highlight-indent-guides-mode)
+;; (use-package! highlight-indent-guides
+;;   :config
+;;   (setq! highlight-indent-guides-method 'character)
+;;   ;; (setq highlight-indent-guides-method 'column)
+;;   (setq! highlight-indent-guides-character ?\▏)
+;;   (setq! highlight-indent-guides-responsive 'stack)
+;;   (setq! highlight-indent-guides-delay 0)
+;;   )
