@@ -137,8 +137,8 @@
 (map!
  :leader
  :desc "popup-hunc" "g p" #'git-gutter:popup-hunk
+ ;; g c 也可以，比这个好用，但是要在 v 模式
  :desc "comment-line" "c /" #'comment-line
- ;;:desc "dumb-jump-go" "g d" #'dumb-jump-go
  )
 (map! :n "g ]" #'dumb-jump-go)
 (map! :n "g [" #'dumb-jump-back)
@@ -170,12 +170,7 @@
   )
 
 (setq! doom-dracula-colorful-headers t)
-;(set-face-foreground 'org-level-1 (doom-color 'yellow))
-;(set-face-foreground 'org-level-2 (doom-color 'fg))
-;(set-face-foreground 'org-level-3 (doom-color 'fg))
-;(set-face-foreground 'org-level-4 (doom-color 'fg))
-;; (custom-set-faces
- ;; `(org-level-1 ((t (:inherit outline-1 :height 1.2)))))
+;; (setq! doom-dracula-brighter-comments t)
 
 (setq web-mode-engines-alist '(("django"    . "\\.html\\'")))
 
@@ -183,8 +178,7 @@
 ;; (add-hook! 'prog-mode-hook 'highlight-indent-guides-mode)
 ;; (use-package! highlight-indent-guides
 ;;   :config
-;;   (setq! highlight-indent-guides-method 'character)
-;;   ;; (setq highlight-indent-guides-method 'column)
+;;   (setq! highlight-indent-guides-method 'bitmap)
 ;;   (setq! highlight-indent-guides-character ?\▏)
 ;;   (setq! highlight-indent-guides-responsive 'stack)
 ;;   (setq! highlight-indent-guides-delay 0)
