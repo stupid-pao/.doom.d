@@ -77,11 +77,13 @@
 
 (use-package! lsp-python-ms
   :demand t
+  :after lsp
   :init
   (setq! lsp-python-ms-extra-paths (list "./taidii"))
   :config
   (setq! lsp-python-ms-python-executable-cmd "python")
   )
+(setq lsp-pyls-plugins-pycodestyle-enabled nil)
 
 ;; (use-package! lsp-pyls
 ;;   :config
@@ -183,3 +185,10 @@
 ;;   (setq! highlight-indent-guides-responsive 'stack)
 ;;   (setq! highlight-indent-guides-delay 0)
 ;;   )
+
+;; doom 可以自动懒加载 根据#+BEGIN_SRC 指定的语言
+;; (org-babel-do-load-languages
+;;   'org-babel-load-languages
+;;   '((emacs-lisp . nil)
+;;     (python . t)
+;;     (javascript . t)))
