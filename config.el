@@ -77,7 +77,6 @@
 
 (use-package! lsp-python-ms
   :demand t
-  :after lsp
   :init
   (setq! lsp-python-ms-extra-paths (list "./taidii"))
   :config
@@ -174,6 +173,8 @@
 (setq! doom-dracula-colorful-headers t)
 ;; (setq! doom-dracula-brighter-comments t)
 
+(use-package! web-mode
+  )
 (setq web-mode-engines-alist '(("django"    . "\\.html\\'")))
 
 ;; 开了这个巨卡无比
