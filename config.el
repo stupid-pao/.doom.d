@@ -75,14 +75,14 @@
   (setq flycheck-python-pylint-executable "flake8")
   )
 
-(use-package! lsp-python-ms
-  :demand t
-  :init
-  (setq! lsp-python-ms-extra-paths (list "./taidii"))
-  :config
-  (setq! lsp-python-ms-python-executable-cmd "python")
-  )
-(setq lsp-pyls-plugins-pycodestyle-enabled nil)
+;; (use-package! lsp-python-ms
+;;   :demand t
+;;   ;; :init
+;;   ;; (setq! lsp-python-ms-extra-paths (list "./taidii"))
+;;   :config
+;;   (setq! lsp-python-ms-python-executable-cmd "python")
+;;   )
+;; (setq lsp-pyls-plugins-pycodestyle-enabled nil)
 
 ;; (use-package! lsp-pyls
 ;;   :config
