@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: my import ... from ...
+# uuid: import
+# key: impt
+# condition: t
+# --
+import ${2:moduleName} from '${1:module}'$0

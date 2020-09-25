@@ -124,6 +124,7 @@
        ;;(haskell +dante)  ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
+       (dart +lsp)
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: imd
+# uuid: 
+# key: imd
+# condition: t
+# --
+import { $2 } from '${1:module}'$0
