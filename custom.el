@@ -4,7 +4,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((eval conda-env-activate "django")
+   '((eval conda-env-activate "env-name")
+     (lsp-python-ms-extra-paths .
+                                ["/Users/paozi/Documents/taidi/taidiiv2/taidii"])
+     (eval conda-env-activate "django")
      (lsp-python-ms-extra-paths quote
                                 ("./apps"))
      (lsp-python-ms-extra-paths quote

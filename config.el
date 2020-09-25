@@ -62,6 +62,11 @@
 
 ;; to auto enable conda-env when open a project, need add below in .dir-locals.el
 ;;((python-mode . ((eval . (conda-env-activate "env-name")))))
+;;
+;;new
+;;;; ((python-mode . ((lsp-python-ms-extra-paths . [ "/Users/paozi/Documents/taidi/taidiiv2/taidii" ])
+;;                  (eval . (conda-env-activate "new2.7")))))
+
 (use-package! conda
     :config
     (setq conda-anaconda-home "/Users/paozi/anaconda")
@@ -73,6 +78,12 @@
 (use-package! flycheck
   :config
   (setq flycheck-python-pylint-executable "flake8")
+  )
+
+(use-package! lsp-python-ms
+  :ensure t
+  :config
+  (setq! lsp-python-ms-python-executable-cmd "python")
   )
 
 ;; (use-package! lsp-python-ms
