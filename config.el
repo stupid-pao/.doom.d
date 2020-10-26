@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Qian Xiao"
+      user-mail-address "dahuaciliu@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -19,7 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;;(setq doom-font (font-spec :family "monospace" :size 14))
+;;(setq doom-font (font-spec :family "Rec Mono Casual" :size 14))
+;; (setq doom-font (font-spec :family "Recursive Mono Casual Static" :size 14))
 (setq doom-font (font-spec :family "monaco" :size 14))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -27,6 +28,7 @@
 ;; `load-theme' function. This is the default:
 ;;(setq doom-theme 'doom-one)
 (setq doom-theme 'doom-dracula)
+;; (setq doom-theme 'nord)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -75,10 +77,21 @@
     (conda-env-initialize-eshell)
     (conda-env-autoactivate-mode t))
 
-(use-package! flycheck
-  :config
-  (setq flycheck-python-pylint-executable "flake8")
-  )
+(after! lsp
+  (add-hook! 'lsp-ui-mode-hook
+    (run-hooks (intern (format "%s-lsp-ui-hook" major-mode)))))
+
+(defun gagbo-python-flycheck-setup ()
+  "Setup Flycheck checkers for Python"
+  (flycheck-add-next-checker 'lsp))
+
+(add-hook 'python-mode-lsp-ui-hook
+          #'gagbo-python-flycheck-setup)
+
+;; For python
+(add-hook 'python-mode-hook #'(lambda ()
+                                (setq flycheck-checker-error-threshold 999)
+                                (modify-syntax-entry ?_ "w")))
 
 (use-package! lsp-python-ms
   :ensure t
@@ -115,6 +128,12 @@
 ;; end python
 ;; ----------------------
 
+;; (use-package! flycheck
+;;   :config
+;;   (setq flycheck-python-pylint-executable "flake8")
+;;   )
+(after! flycheck
+  (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)))
 
 (define-coding-system-alias 'UTF-8 'utf-8)
 
@@ -159,8 +178,6 @@
 ;; -----------------
 
 
-;; For python
-(add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 ;; For Javascript
 ;; (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 ;; More generally, this will do it for all major modes:

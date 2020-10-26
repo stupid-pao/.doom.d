@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: fc
+# uuid: fc
+# key: fc
+# condition: t
+# --
+
+$1 = ($2) => {
+   $0
+
+}

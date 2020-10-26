@@ -3,8 +3,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-checker-error-threshold 3000)
+ '(org-agenda-files '("~/Documents/org/agenda.org"))
  '(safe-local-variable-values
-   '((eval conda-env-activate "env-name")
+   '((lsp-python-ms-extra-paths quote
+                                ("/Users/paozi/Documents/zhixiao/serverDev/apps"))
+     (eval conda-env-activate "django3.0")
+     (lsp-python-ms-extra-paths .
+                                ["/Users/paozi/Documents/jia/chen/chen/"])
+     (eval conda-env-activate "env-name")
      (lsp-python-ms-extra-paths .
                                 ["/Users/paozi/Documents/taidi/taidiiv2/taidii"])
      (eval conda-env-activate "django")

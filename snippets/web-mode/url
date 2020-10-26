@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: revers url in django html 
+# uuid: url
+# key: url
+# condition: t
+# --
+"{% url '$1' %}"

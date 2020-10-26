@@ -4,4 +4,4 @@
 # key: impt
 # condition: t
 # --
-import ${2:moduleName} from '${1:module}'$0
+import ${2:moduleName} from '${1:module}';$0

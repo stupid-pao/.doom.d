@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: add permission on django-html
-# uuid: 
-# key: permission
+# uuid: permission
+# key: per
 # condition: t
 # --
 {% if user|has_permission:'$1' %}
