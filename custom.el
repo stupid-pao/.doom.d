@@ -6,7 +6,9 @@
  '(flycheck-checker-error-threshold 3000)
  '(org-agenda-files '("~/Documents/org/agenda.org"))
  '(safe-local-variable-values
-   '((lsp-python-ms-extra-paths quote
+   '((lsp-pyright-extra-paths .
+                              ["taidii"])
+     (lsp-python-ms-extra-paths quote
                                 ("/Users/paozi/Documents/zhixiao/serverDev/apps"))
      (eval conda-env-activate "django3.0")
      (lsp-python-ms-extra-paths .

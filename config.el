@@ -68,6 +68,7 @@
 ;;new
 ;;;; ((python-mode . ((lsp-python-ms-extra-paths . [ "/Users/paozi/Documents/taidi/taidiiv2/taidii" ])
 ;;                  (eval . (conda-env-activate "new2.7")))))
+;; (setq lsp-pyright-extra-paths ["taidii"])
 
 (use-package! conda
     :config
@@ -97,6 +98,15 @@
   :ensure t
   :config
   (setq! lsp-python-ms-python-executable-cmd "python")
+  )
+
+(use-package! lsp-pyright
+  :after lsp-mode
+  :init
+  (setq lsp-pyright-diagnostic-mode "openFilesOnly")
+  :custom
+  (lsp-pyright-typechecking-mode "off")
+  :config
   )
 
 ;; (use-package! lsp-python-ms
@@ -153,14 +163,14 @@
               (lsp-organize-imports)))
   )
 
-;;(use-package! git-gutter
-  ;;:config
-  ;;(custom-set-variables
-    ;;;;'(git-gutter:modified-sign "  ") 
-    ;;;;'(git-gutter:added-sign "++")
-    ;;'(git-gutter:deleted-sign "⇲"))
-  ;;(set-face-background 'git-gutter:deleted "#ff5555")
-  ;;)
+;; (use-package! git-gutter
+;;   :config
+;;   (custom-set-variables
+;;     '(git-gutter:modified-sign "  ") 
+;;     '(git-gutter:added-sign "++")
+;;     '(git-gutter:deleted-sign "⇲"))
+;;   (set-face-background 'git-gutter:deleted "#ff5555")
+;;   )
 
 ;; -----------------
 ;; keymap        
@@ -236,3 +246,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(setq! treemacs-follow-mode t)
