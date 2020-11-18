@@ -94,11 +94,11 @@
                                 (setq flycheck-checker-error-threshold 999)
                                 (modify-syntax-entry ?_ "w")))
 
-(use-package! lsp-python-ms
-  :ensure t
-  :config
-  (setq! lsp-python-ms-python-executable-cmd "python")
-  )
+;; (use-package! lsp-python-ms
+;;   :ensure t
+;;   :config
+;;   (setq! lsp-python-ms-python-executable-cmd "python")
+;;   )
 
 (use-package! lsp-pyright
   :after lsp-mode
@@ -161,6 +161,7 @@
               ;;(lsp-format-buffer)
               (gofmt-before-save)
               (lsp-organize-imports)))
+  ;; (setq lsp-gopls-server-path "~/go/bin/gopls")
   )
 
 ;; (use-package! git-gutter

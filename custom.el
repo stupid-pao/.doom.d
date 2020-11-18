@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(flycheck-checker-error-threshold 3000)
+ '(lsp-go-gopls-server-path "~/go/bin/gopls")
  '(org-agenda-files '("~/Documents/org/agenda.org"))
  '(safe-local-variable-values
    '((lsp-pyright-extra-paths .
