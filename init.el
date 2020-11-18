@@ -68,6 +68,7 @@
        electric          ; smarter, keyword-based electric-indent
        (ibuffer +icons)         ; interactive buffer management
        vc                ; version-control and Emacs, sitting in a tree
+       undo              ; for undo-fu
 
        :term
        eshell            ; a consistent, cross-platform shell (WIP)
