@@ -52,3 +52,4 @@
 
 (package! lsp-python-ms)
 (package! nord-theme)
+(package! lsp-treemacs)

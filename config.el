@@ -21,7 +21,7 @@
 ;; font string. You generally only need these two:
 ;;(setq doom-font (font-spec :family "Rec Mono Casual" :size 14))
 ;; (setq doom-font (font-spec :family "Recursive Mono Casual Static" :size 14))
-(setq doom-font (font-spec :family "monaco" :size 14))
+(setq doom-font (font-spec :family "monaco" :size 13))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -91,29 +91,24 @@
                                 (setq flycheck-checker-error-threshold 999)
                                 (modify-syntax-entry ?_ "w")))
 
-;; (use-package! lsp-python-ms
-;;   :ensure t
-;;   :config
-;;   (setq! lsp-python-ms-python-executable-cmd "python")
-;;   )
 
 ;; (setq lsp-enable-file-watchers nil)
-(use-package! lsp-pyright
-  :after lsp-mode
-  :init
-  (setq lsp-pyright-diagnostic-mode "openFilesOnly")
-  :custom
-  (lsp-pyright-typechecking-mode "off")
-  :config
-  )
-
-;; (use-package! lsp-python-ms
-;;   :demand t
-;;   ;; :init
-;;   ;; (setq! lsp-python-ms-extra-paths (list "./taidii"))
+;; (use-package! lsp-pyright
+;;   :after lsp-mode
+;;   :init
+;;   (setq lsp-pyright-diagnostic-mode "openFilesOnly")
+;;   :custom
+;;   (lsp-pyright-typechecking-mode "off")
 ;;   :config
-;;   (setq! lsp-python-ms-python-executable-cmd "python")
 ;;   )
+
+(use-package! lsp-python-ms
+  :demand t
+  ;; :init
+  ;; (setq! lsp-python-ms-extra-paths (list "./taidii"))
+  :config
+  (setq! lsp-python-ms-python-executable-cmd "python")
+  )
 ;; (setq lsp-pyls-plugins-pycodestyle-enabled nil)
 
 ;; (use-package! lsp-pyls
@@ -154,12 +149,12 @@
   ;; or
   ;; The lsp approach:   use lsp import; use `gofmt -s` format 
   (setq gofmt-args (list "-s"))
+  (setq lsp-gopls-server-path "~/go/bin/gopls")
   (add-hook 'before-save-hook
             (lambda ()
               ;;(lsp-format-buffer)
               (gofmt-before-save)
               (lsp-organize-imports)))
-  ;; (setq lsp-gopls-server-path "~/go/bin/gopls")
   )
 
 ;; (use-package! git-gutter
@@ -182,6 +177,16 @@
  )
 (map! :n "g ]" #'dumb-jump-go)
 (map! :n "g [" #'dumb-jump-back)
+(map! :leader
+      :desc "lsp treemacs"
+      "o t" #'lsp-treemacs-symbols)
+;;https://rameezkhan.me/adding-keybindings-to-doom-emacs/
+
+;; evil key remap
+;; 因为 evil-yank 会在V模式下 复制结束时光标会自动跳到开始复制的位置,
+;; 而原生的 kill-ring-save 则不会
+(with-eval-after-load 'evil-maps
+  (define-key evil-motion-state-map (kbd "y") 'kill-ring-save))
 ;; -----------------
 ;; end keymap
 ;; -----------------
@@ -247,3 +252,8 @@
  )
 
 (setq! treemacs-follow-mode t)
+
+(lsp-treemacs-sync-mode 1)
+(use-package! lsp-treemacs
+  :after lsp)
+
