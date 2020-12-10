@@ -4,9 +4,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((encoding . utf-8)
-     (lsp-python-ms-extra-paths . "./taidii")
-     (eval conda-env-activate "new2.7")
+   '((eval conda-env-activate "trading")
+     (encoding . utf-8)
+     (eval conda-env-activate "django3.0")
      (lsp-python-ms-extra-paths .
                                 ["/Users/paozi/Documents/taidi/taidiiv2/taidii"])
      (lsp-pyright-extra-paths .

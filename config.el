@@ -26,8 +26,10 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;;(setq doom-theme 'doom-one)
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-dracula)
+;; (setq doom-theme 'doom-nord-light)
+;; (setq doom-theme 'doom-one-light)
 ;; (setq doom-theme 'nord)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -92,15 +94,17 @@
                                 (modify-syntax-entry ?_ "w")))
 
 
-;; (setq lsp-enable-file-watchers nil)
-;; (use-package! lsp-pyright
-;;   :after lsp-mode
-;;   :init
-;;   (setq lsp-pyright-diagnostic-mode "openFilesOnly")
-;;   :custom
-;;   (lsp-pyright-typechecking-mode "off")
-;;   :config
-;;   )
+(setq lsp-enable-file-watchers nil)
+(setq lsp-pyright-extra-paths ["taidii"])
+(setq lsp-pyright-extra-paths ["/Users/paozi/Documents/taidi/taidiiv2/taidii"])
+(use-package! lsp-pyright
+  :after lsp-mode
+  :init
+  (setq lsp-pyright-diagnostic-mode "openFilesOnly")
+  :custom
+  (lsp-pyright-typechecking-mode "off")
+  :config
+  )
 
 (use-package! lsp-python-ms
   :demand t
