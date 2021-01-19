@@ -47,6 +47,9 @@
        window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
        ;;zen               ; distraction-free coding or writing
+       minimap
+       emoji (+ascii +github +unicode)  ; Adds emoji support to Emacs
+       ;; ligatures +extra +fira +hasklig +iosevka +pragmata-pro - Ligature support for Emacs
 
        :editor
        (evil +everywhere); come to the dark side, we have cookies
@@ -91,7 +94,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       lsp
+       (lsp +peek)
        ;;macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs

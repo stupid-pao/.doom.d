@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: permission init
+# uuid: permission init
+# key: per
+# condition: t
+# --
+
+user_type = TaidiiUser.get_taidii_user_property(request.user, 'role_name')
+if user_type not in ['principal', 'teacher']:
+    return Response({'success': 0, 'message': 'permission denied'})
+
+if not is_user_permission_enable(request.user, 'enrolment', 'view'):
+    return Response({'success': 0, 'message': 'permission denied'})

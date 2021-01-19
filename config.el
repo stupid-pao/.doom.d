@@ -106,13 +106,13 @@
   :config
   )
 
-(use-package! lsp-python-ms
-  :demand t
-  ;; :init
-  ;; (setq! lsp-python-ms-extra-paths (list "./taidii"))
-  :config
-  (setq! lsp-python-ms-python-executable-cmd "python")
-  )
+;; (use-package! lsp-python-ms
+;;   :demand t
+;;   ;; :init
+;;   ;; (setq! lsp-python-ms-extra-paths (list "./taidii"))
+;;   :config
+;;   (setq! lsp-python-ms-python-executable-cmd "python")
+;;   )
 ;; (setq lsp-pyls-plugins-pycodestyle-enabled nil)
 
 ;; (use-package! lsp-pyls
@@ -151,15 +151,22 @@
   ;;(setq gofmt-command "goimports")
   ;;(add-hook 'before-save-hook 'gofmt-before-save)
   ;; or
-  ;; The lsp approach:   use lsp import; use `gofmt -s` format 
+  ;; The lsp approach:   use lsp import; use `gofmt -s` format
+   
   (setq gofmt-args (list "-s"))
-  (setq lsp-gopls-server-path "~/go/bin/gopls")
   (add-hook 'before-save-hook
             (lambda ()
               ;;(lsp-format-buffer)
               (gofmt-before-save)
               (lsp-organize-imports)))
   )
+  
+;; (setq flycheck-golangci-lint-config "~/.golangci.yml")
+
+;; doom env
+;; doom help env
+;; (after! go-mode
+;;   (setq lsp-gopls-server-path "/Users/paozi/go/bin/gopls"))
 
 ;; (use-package! git-gutter
 ;;   :config
@@ -186,11 +193,19 @@
       "o t" #'lsp-treemacs-symbols)
 ;;https://rameezkhan.me/adding-keybindings-to-doom-emacs/
 
+;; 禁用触控板缩放
+(global-unset-key (kbd "<magnify-down>"))
+(global-unset-key (kbd "<magnify-up>"))
+;; mac-mouse-turn-off-fullscreen
+(global-unset-key (kbd "<S-magnify-down>"))
+(global-unset-key (kbd "<S-magnify-up>"))
+
 ;; evil key remap
 ;; 因为 evil-yank 会在V模式下 复制结束时光标会自动跳到开始复制的位置,
 ;; 而原生的 kill-ring-save 则不会
-(with-eval-after-load 'evil-maps
-  (define-key evil-motion-state-map (kbd "y") 'kill-ring-save))
+;; (with-eval-after-load 'evil-maps   ;; 看情况使用 M-w 
+
+;;   (define-key evil-motion-state-map (kbd "y") 'kill-ring-save))
 ;; -----------------
 ;; end keymap
 ;; -----------------
@@ -260,4 +275,18 @@
 (lsp-treemacs-sync-mode 1)
 (use-package! lsp-treemacs
   :after lsp)
+
+(setq! lsp-headerline-breadcrumb-mode t)
+(setq! lsp-headerline-breadcrumb-enable t)
+(setq! lsp-headerline-breadcrumb-segments '(symbols))
+
+(setq counsel-find-file-ignore-regexp "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)\\|\\(?:.pyc$\\)")
+
+;; (eval-after-load 'flycheck                                       
+;;   '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
+
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
+
+
 
