@@ -249,10 +249,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ ;; '(safe-local-variable-values
+ ;;   (quote
+ ;;    ((encoding . utf-8)
+ ;;     (eval conda-env-activate "new2.7")))))
  '(safe-local-variable-values
-   (quote
-    ((encoding . utf-8)
-     (eval conda-env-activate "new2.7")))))
+   '(
+        (encoding . utf-8)
+        (eval conda-env-activate "django3.0")
+     )
+   )
+ )
+
+;; 如果local variable 是 safe 模式， 不自定义 safe value，dir-locals 就不能使用
+;; (setq enable-local-variables :all)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -272,11 +282,19 @@
 
 (setq counsel-find-file-ignore-regexp "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)\\|\\(?:.pyc$\\)")
 
-;; (eval-after-load 'flycheck                                       
-;;   '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
-
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
 
+;; flycheck-select-checker  golangci-lint
+(after! lsp
+  (add-hook! 'lsp-mode-hook
+             (run-hook! (intern (format "%s-lsp-hook" major-mode))))
+  )
 
+(defun my-go-flycheck-setup ()
+  (flycheck-add-next-checker 'lsp 'golangci-lint))
+
+(add-hook 'go-mode-lsp-hook
+          #'my-go-flycheck-setup)
+;; end
 
