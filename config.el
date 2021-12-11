@@ -262,7 +262,7 @@
  )
 
 ;; 如果local variable 是 safe 模式， 不自定义 safe value，dir-locals 就不能使用
-;; (setq enable-local-variables :all)
+(setq enable-local-variables :all)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
