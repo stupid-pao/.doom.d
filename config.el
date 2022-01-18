@@ -75,7 +75,8 @@
     (setq conda-env-home-directory "/Users/paozi/anaconda")
     (conda-env-initialize-interactive-shells)
     (conda-env-initialize-eshell)
-    (conda-env-autoactivate-mode t))
+    ;; (conda-env-autoactivate-mode t)
+    )
 
 (after! lsp
   (add-hook! 'lsp-ui-mode-hook
@@ -256,7 +257,7 @@
  '(safe-local-variable-values
    '(
         (encoding . utf-8)
-        (eval conda-env-activate "django3.0")
+        ;; (eval conda-env-activate "django3.0")
      )
    )
  )

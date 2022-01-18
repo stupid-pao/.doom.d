@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: err is nil
+# uuid: errnil
+# key: errnil
+# condition: t
+# --
+
+if err != nil {
+    panic(err)
+}
